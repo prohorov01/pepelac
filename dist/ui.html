@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Список ссылок на страницы</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<link
+			href="assets/css/main.min.css?v=66608d3c138e369b5eca"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header>
+			<div class="container header">
+				<button class="header-icon e--mob">
+					<img
+						src="assets/img/mob-menu.svg"
+						alt="Mobile menu"
+						width="24"
+						height="12"
+					/>
+				</button>
+
+				<img
+					class="header-logo"
+					src="assets/img/logo.svg"
+					alt="Logo"
+					width="101"
+					height="36"
+				/>
+
+				<div class="d-flex">
+					<button class="header-icon e--dsk">
+						<img
+							src="assets/img/search.svg"
+							alt="Search"
+							width="17"
+							height="17"
+						/>
+					</button>
+
+					<nav>
+						<a href="#" class="header-link active">Home</a>
+						<a href="#" class="header-link">Spaces</a>
+						<a href="#" class="header-link">Products & Services</a>
+						<a href="#" class="header-link">Showrooms</a>
+						<a href="#" class="header-link">Showrooms</a>
+						<a href="#" class="header-link">Company</a>
+						<a href="#" class="header-link">Media</a>
+						<a href="#" class="header-link">CONTACT</a>
+					</nav>
+
+					<div class="header-right-nav">
+						<button class="header-icon">
+							<img
+								src="assets/img/cart.svg"
+								alt="Cart"
+								width="21"
+								height="20"
+							/>
+						</button>
+						<button class="header-icon e--dsk">
+							<img
+								src="assets/img/heart.svg"
+								alt="Search"
+								width="20"
+								height="18"
+							/>
+						</button>
+						<button class="header-icon e--dsk">
+							<img
+								src="assets/img/user.svg"
+								alt="Search"
+								width="15"
+								height="18"
+							/>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container mb-5">
+			<div class="row">
+				<div class="col-12">
+					<div class="h4 my-4" style="opacity: 0.5">Всего страниц: 3</div>
+				</div>
+				<div class="col-12">
+					<div class="list-group">
+						<a
+							class="list-group-item list-group-item-action d-lg-flex justify-content-between align-items-center js-link-group"
+							href="404.html"
+							target="_blank"
+							><div>404 - страница не найдена</div>
+							<code class="d-inline-block badge text-danger bg-light"
+								>404.html</code
+							></a
+						>
+						<a
+							class="list-group-item list-group-item-action d-lg-flex justify-content-between align-items-center js-link-group"
+							href="index.html"
+							target="_blank"
+							><div>PEPELAC</div>
+							<code class="d-inline-block badge text-danger bg-light"
+								>index.html</code
+							></a
+						>
+						<a
+							class="list-group-item list-group-item-action d-lg-flex justify-content-between align-items-center js-link-group"
+							href="kit.html"
+							target="_blank"
+							><div>Типографика</div>
+							<code class="d-inline-block badge text-danger bg-light"
+								>kit.html</code
+							></a
+						>
+					</div>
+				</div>
+				<div class="col-12 mt-5">
+					<div>
+						<button id="download-list" class="btn btn-outline-success">
+							Скачать список страниц
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			/** Скачивание файла */
+			function download(text, filename, type = "text/plain") {
+				const blob = new Blob([text], { type });
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement("a");
+				a.href = url;
+				a.download = filename;
+				a.click();
+			}
+
+			const listHtml = [
+				{ url: "404.html", title: "404 - страница не найдена" },
+				{ url: "index.html", title: "PEPELAC" },
+				{ url: "kit.html", title: "Типографика" },
+			];
+			const contentLinks = listHtml
+				.map((i) => `${i.title} - ${i.url}`)
+				.join("\n");
+
+			/** Пометка ссылок на которые был переход */
+			document.querySelectorAll(".js-link-group").forEach((link) =>
+				link.addEventListener("click", function () {
+					this.classList.add("active");
+				})
+			);
+
+			/** Событие скачивание списка страниц */
+			document
+				.getElementById("download-list")
+				.addEventListener("click", function () {
+					download(contentLinks, "Список страниц сайта.txt");
+				});
+		</script>
+		<footer>
+			<div class="bg-darks">
+				<div class="container footer">
+					<div class="footer-d">
+						<div class="footer-m">
+							<div class="footer-main">
+								<img
+									class="footer-logo"
+									src="assets/img/logo-w.svg"
+									alt="Logo"
+									width="162"
+									height="57"
+								/>
+							</div>
+							<div class="mob-nav">
+								<div class="mob-title">
+									<h3 class="footer-nav-h3">Products</h3>
+									<div><img src="assets/img/line.svg" alt="line" /></div>
+								</div>
+								<div class="mob-title">
+									<h3 class="footer-nav-h3">Services</h3>
+									<div><img src="assets/img/line.svg" alt="line" /></div>
+								</div>
+								<div class="mob-title">
+									<h3 class="footer-nav-h3">Contact information</h3>
+									<div><img src="assets/img/line.svg" alt="line" /></div>
+								</div>
+							</div>
+							<div class="footer-main-shake">
+								<a href="#">
+									<img src="assets/img/fake.svg" alt="fakebook" />
+								</a>
+								<a href="#">
+									<img src="assets/img/twit.svg" alt="twin" />
+								</a>
+								<a href="#">
+									<img src="assets/img/insta.svg" alt="insta" />
+								</a>
+							</div>
+						</div>
+						<div class="footer-nav">
+							<nav class="footer-nav-title">
+								<h3 class="footer-nav-h3">Products</h3>
+								<a href="#" class="footer-link">Sand Stone</a>
+								<a href="#" class="footer-link">Stone</a>
+								<a href="#" class="footer-link">Cement</a>
+								<a href="#" class="footer-link">Soft Stone</a>
+							</nav>
+
+							<nav class="footer-nav-title">
+								<h3 class="footer-nav-h3">Services</h3>
+
+								<a href="#" class="footer-link">Measurement Service</a>
+								<a href="#" class="footer-link">Product Advice</a>
+								<a href="#" class="footer-link">Interior Design</a>
+							</nav>
+
+							<nav class="footer-nav-title">
+								<h3 class="footer-nav-h3">Contact information</h3>
+
+								<a href="#" class="footer-link"
+									>3181 Al Imam Saud Ibn Abdul Aziz Branch Rd,</a
+								>
+								<a href="#" class="footer-link">An Nuzhah, Riyadh 12474,</a>
+								<a href="#" class="footer-link">Saudi Arabia</a>
+							</nav>
+						</div>
+					</div>
+					<div class="footer-bad">
+						<a href="#">
+							<p class="footer-p">Copyright © 2022 | All Rights Reserved.</p>
+						</a>
+						<a href="#">
+							<p class="footer-p">Created with love by thecreation design</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script defer src="assets/js/vendor.min.js?v=dcbdf720d2ff8cbe5473"></script>
+		<script defer src="assets/js/main.min.js?v=66608d3c138e369b5eca"></script>
+	</body>
+</html>
