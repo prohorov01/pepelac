@@ -15413,6 +15413,10 @@ input[type="text"]::placeholder {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   background-color: transparent;
   border: none;
@@ -15592,4 +15596,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=main.min.css.map?v=7b9e2a0a631bb8ebdf73*/
+/*# sourceMappingURL=main.min.css.map?v=75b105f9a0537b90b198*/
